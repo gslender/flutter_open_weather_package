@@ -1,8 +1,8 @@
 /// enum that holds all the weather unit related options
-enum WeatherUnits { STANDARD, METRIC, IMPERIAL }
+enum WeatherUnits { standard, metric, imperial }
 
 Map<WeatherUnits, String> weatherUnitsString = {
-  WeatherUnits.IMPERIAL: 'imperial',
-  WeatherUnits.METRIC: 'metric',
-  WeatherUnits.STANDARD: 'standard'
+  WeatherUnits.imperial: 'imperial',
+  WeatherUnits.metric: 'metric',
+  WeatherUnits.standard: 'standard'
 };
