@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:open_weather_client/models/coordinates.dart';
 import 'package:open_weather_client/models/details.dart';
 import 'package:open_weather_client/models/temperature.dart';
+import 'package:open_weather_client/models/system.dart';
 import 'package:open_weather_client/models/wind.dart';
 
 part 'weather_data.g.dart';
@@ -22,6 +23,8 @@ class WeatherData {
   @JsonKey(name: 'coord')
   Coordinates coordinates;
   String name;
+  @JsonKey(name: 'sys')
+  System system;
   @JsonKey(name: 'dt')
   int date;
 
@@ -31,6 +34,7 @@ class WeatherData {
     required this.wind,
     required this.coordinates,
     required this.name,
+    required this.system,
     required this.date,
   });
 
