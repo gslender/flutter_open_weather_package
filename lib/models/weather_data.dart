@@ -25,8 +25,14 @@ class WeatherData {
   String name;
   @JsonKey(name: 'sys')
   System system;
-  @JsonKey(name: 'dt')
-  int date;
+  int? dt;
+
+  @JsonKey(ignore: true)
+  DateTime get datetime => dt != null
+      ? DateTime.fromMillisecondsSinceEpoch(dt! * 1000)
+      : DateTime.now();
+  set datetime(DateTime dateTime) =>
+      dt = dateTime.millisecondsSinceEpoch ~/ 1000;
 
   WeatherData({
     required this.details,
@@ -35,8 +41,13 @@ class WeatherData {
     required this.coordinates,
     required this.name,
     required this.system,
-    required this.date,
-  });
+    this.dt,
+    DateTime? dateTime,
+  }) {
+    if (dt == null && dateTime != null) {
+      dt = dateTime.millisecondsSinceEpoch ~/ 1000;
+    }
+  }
 
   factory WeatherData.fromJson(Map<String, dynamic> json) =>
       _$WeatherDataFromJson(json);

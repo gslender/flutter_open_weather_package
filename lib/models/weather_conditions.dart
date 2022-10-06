@@ -6,6 +6,11 @@ class WeatherConditions {
   final int id;
   WeatherConditions(this.main, this.description, this.id);
 
+  @override
+  String toString() {
+    return 'WeatherConditions id:$id $main $description';
+  }
+
   WeatherMainCondition getWeatherMainCondition() {
     if (id >= 200 && id <= 299) return WeatherMainCondition.thunderstorm;
     if (id >= 300 && id <= 399) return WeatherMainCondition.drizzle;
